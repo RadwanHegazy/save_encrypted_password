@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> الرئيسية</title>
+    <link rel="stylesheet" href="{% static 'css/inedx.css' %}">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
+    </style>
+
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+</head>
+<body>
+    
+    <form  method="post">
+        <div class="container">
+            {% csrf_token %}
+            <img src="{% static 'images/home-bg.png' %}" alt="" class="bg">
+    
+            <div class="main">
+                <h1>انشاء حساب</h1>
+    
+                <div class="in">
+                    <small>ادخل اسمك </small>
+                    <input type="text" required name="username">
+                </div>
+                
+                <div class="in">
+                    <small>ادخل البريد الالكتروني </small>
+                    <input type="email" required name="email">
+                </div>
+    
+                <div class="in">
+                    <small>ادخل كلمة السر </small>
+                    <input required name="password" type="password">
+                </div>
+    
+                <div class="down">
+                    <button >دخول</button>
+                    <p>لديك حساب بالفعل ؟ <a href="{% url 'login' %}">سجل الان</a></p>
+                </div>
+            </div>
+            
+            <footer>
+                <p>تمت البرمجة و التصميم بواسطة رضوان جابر حجازي </p>
+            </footer>
+        </div>
+    </form>
+
+</body>
+</html>  

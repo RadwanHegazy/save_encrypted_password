@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> الرئيسية</title>
+    <link rel="stylesheet" href="{% static 'css/inedx.css' %}">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+
+        <img src="{% static 'images/home-bg' %}.png" alt="" class="bg">
+
+        <div class="r">
+            <div class="text">
+                <h1>حماية كلمات مرورك</h1>
+                <p>  حماية وحفظ كلمات مرورك من القرصنة الالكترونية هو هدفنا  و تلك هي خدمتنا</p>
+                <a href="{% url 'register' %}">دخول</a>
+            </div>
+        </div>
+        <div class="l">
+            <img src="{% static 'images/user.png' %}" alt="">
+        </div>
+
+        <footer>
+            <p>تمت البرمجة و التصميم بواسطة رضوان جابر حجازي </p>
+        </footer>
+        
+    </div>
+
+</body>
+</html>

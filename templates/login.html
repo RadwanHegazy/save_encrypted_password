@@ -1,0 +1,68 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> الرئيسية</title>
+    <link rel="stylesheet" href="{% static 'css/inedx.css' %}">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
+    </style>
+
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+    
+    <div class="container">
+
+        <img src="{% static 'images/home-bg.png' %}" alt="" class="bg">
+
+        <form method="POST" id="f" enctype="multipart/form-data">
+            <div class="main">
+                {% csrf_token %}
+                <h1>تسجيل الدخول</h1>
+                <div class="upload">
+                    <p>اضغط هنا لرفع ملفك التعريفي</p>
+                    <input type="file" hidden id="file" name="code">
+                </div>
+    
+                <div class="down">
+                    <button type="submit">دخول</button>
+                    <p>ليس لديك حساب ؟ <a href="{% url 'register' %}">سجل الان</a></p>
+                </div>
+            </div>
+        </form>
+        
+        <footer>
+            <p>تمت البرمجة و التصميم بواسطة رضوان جابر حجازي </p>
+        </footer>
+    </div>
+
+    <script>
+
+
+        if ("{{msg}}"){
+            alert("{{msg}}")
+        }
+
+        var uploadForm = document.querySelector('.upload');
+        var file = document.querySelector('#file')
+
+        uploadForm.addEventListener('click',function(){
+            file.click()
+        })
+
+
+        file.addEventListener('change',function(e){
+            var file_data = e.target.files[0] ;
+            uploadForm.querySelector('p').textContent = file_data.name ;
+            
+        })
+
+        
+    </script>
+</body>
+</html>

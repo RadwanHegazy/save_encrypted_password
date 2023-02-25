@@ -1,0 +1,231 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --var-font: 'Cairo', sans-serif;
+    --var-pur: #951AFF;
+
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow: auto;
+    padding-bottom: 60px;
+}
+
+.container .l {
+    flex: 4;
+}
+.container .r {
+    flex: 1.7;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--var-font);
+    gap: 20px;
+}
+
+
+.container .r div {
+    flex: 1;
+    background-color: #ffffff30;
+    backdrop-filter: blur(20px);
+    border-radius: 60px;
+    box-shadow: 0px 3px 17px #ffffff35;
+    padding: 1rem 2rem;
+    
+}
+
+.container .r div h1 {
+    text-align: right;
+    font-size: 1.8rem;
+    color: #fff;
+}
+.container .l, .container .r {
+    padding: 1rem;
+}
+
+.container .bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+}
+
+.container footer {
+    position: fixed ;
+    bottom: 0; 
+    width: 100%;
+    padding: 1rem;
+    backdrop-filter: blur(7px);
+    background-color: #ffffff21;
+    text-align: center;
+    border-top-right-radius: 100px;
+    box-shadow: 0px 7px 14px #ffffff2a;
+    border-top-left-radius: 100px;
+}
+
+footer p {
+    font-family: var(--var-font);
+    font-weight: bold ;
+    color: #fff;
+}
+
+.top p {
+    background-color: transparent;
+    /* border: 2px solid red; */
+    backdrop-filter: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 50px;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+
+.in {
+    width: 100%;
+    margin: 7px auto;
+    display: flex;
+    flex-direction: column;
+    height: 65px;
+    background-color: #FFFFFF35;
+    direction: rtl;
+}
+
+.in small {
+    color: #fff;
+    padding-right: 7px;
+}
+
+.in input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    height: 20px;
+    padding: 7px 12px;
+}
+
+.bottom button {
+    background-color: var(--var-pur);
+    font-family: var(--var-font);
+    border-bottom-left-radius: 60px ;
+    border-bottom-right-radius: 60px ;
+    padding: 0.5rem 1.2rem;
+    box-shadow: 0px 7px 12px #00000025;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    color: #fff;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.bottom button:hover, .bottom {
+    box-shadow: none;
+
+}
+
+
+.super {
+    width: 100%;
+    min-height: 100%;
+    /* max-height: 500px; */
+    border-radius: 60px;
+    backdrop-filter: blur(20px);
+    background-color: #ffffff30;
+    box-shadow: 0px 3px 17px #ffffff35;
+    display: flex;
+    padding: 3rem;
+    overflow-y: auto;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pas {
+    width: 100%;
+    height: 100px;
+    padding: 0.5rem 1rem;
+    background: #ffffff50;
+    box-shadow: 0px 3px 13px #ffffff41;
+    display: flex;
+    position: relative;
+    cursor: pointer;
+}
+
+.pas .view {
+    position: absolute;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    background-color: #8b1c5d71;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: all 0.4s ease;
+
+}
+
+.pas .view p {
+    font-family: var(--var-font);
+}
+
+.pas:hover .view {
+    opacity: 1;
+}
+
+.pas .left {
+    flex: 2;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-right: 1px solid #951AFF50;
+}
+
+.pas .left i {
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: #951AFF50;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px #ffffff30;
+}
+
+.pas .right {
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--var-font);
+    position: relative;
+}
+
+.pas .right small {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.pas .right input {
+    width: 100%;
+    direction: rtl;
+    font-size: 20px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+

@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Profile </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
+    </style>
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+</head>
+<body>
+    
+
+    <div class="container">
+        <img src="{% static 'images/profile-bg.png' %}" alt="" class="bg">
+        
+
+        <div class="l">
+
+            <div class="super">
+
+                {% for password in passwords %}
+                    <div class="pas">
+                        <div class="right">
+                            <small>كلمة السر الخاصة ب : {{ password.name }}</small>
+                            <input type="password" readonly  value="{{ password.text }}" class="password-{{password.id}}">
+                        </div>
+                        <div class="view">
+                            <i class="fas fa-info"></i>
+                            <p>انقر لمعرفة كلمة السر</p>
+                        </div>
+                    </div>
+                    
+                {% endfor %}    
+
+            </div>
+
+        </div>
+        
+        <div class="r">
+            
+            <div class="top">
+                <h1>بياناتك الشخصية</h1>
+                <p> {{ user.username }} : اسم المستخدم</p>
+                <p> {{ user.email }} : الايميل</p>
+                <p> {{ user.last_login | timeuntil }} ago: اخر ظهور</p>
+                <a download="" style="display: flex;justify-content: center;color: #a72571;" href="{{ code }}">تحميل شفرة الدخول</a>
+                <a style="display: flex;justify-content: center;color: #a72571;" href="{% url 'logout' %}">تسجيل الخروج</a>
+            </div>
+            
+            <div class="bottom">
+                <form method="POST">
+                    {% csrf_token %}
+                    <h1>اضافة كلمة سر جديدة</h1>
+                    
+                    <div class="in">
+                        <small>ادخل اسم الموقع </small>
+                        <input type="text" name="name">
+                    </div>
+                    
+                    <div class="in">
+                        <small>ادخل كلمة المرور </small>
+                        <input type="text" name="password">
+                    </div>
+                    <button type="submit">حفظ</button>
+                </form>
+            </div>
+
+        </div>
+
+        <footer>
+            <p>تمت البرمجة و التصميم بواسطة رضوان جابر حجازي </p>
+        </footer>
+
+    </div>
+
+
+
+    <script>
+
+        var pas = document.querySelectorAll('.pas');
+
+        pas.forEach( item=> {
+            
+            item.addEventListener('click',function(){
+                
+                var password = item.querySelector('input');
+                
+                if ( password.type == 'password'){
+                    pas.forEach(i => {
+                        i.querySelector('input').type = 'password'
+                    })
+                    
+                    password.type = 'text'
+                    password.select()
+                    document.execCommand('copy')
+                }else{
+                    password.type = 'password'
+                }
+
+            })
+        })
+
+
+    </script>
+
+</body>
+</html>
